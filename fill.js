@@ -1,8 +1,12 @@
 import puppteer from "puppeteer"
 
+let id = process.env.K_ID
+
 async function main(){
   try {
-
+    if(!id){
+      throw new Error("Please set up env for K_ID")
+    }
     let browser = await puppteer.launch(
       {
         headless:false
